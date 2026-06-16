@@ -7,728 +7,517 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #0d0d0f;
-  --bg2: #141416;
-  --bg3: #1c1c1f;
-  --bg4: #232326;
-  --border: rgba(255,255,255,0.07);
-  --border2: rgba(255,255,255,0.13);
-  --text: #f0eee8;
-  --text2: #9a9890;
-  --text3: #4a4846;
-  --accent: #e8855a;
-  --accent2: #f0a882;
-  --gold: #c9a96e;
-  --line: rgba(232,133,90,0.18);
-
-  --ig: #c13584;
-  --ig-bg: rgba(193,53,132,0.10);
-  --ig-border: rgba(193,53,132,0.28);
-
-  --tk: #69c9d0;
-  --tk-bg: rgba(105,201,208,0.08);
-  --tk-border: rgba(105,201,208,0.25);
-
-  --li: #0a66c2;
-  --li-bg: rgba(10,102,194,0.10);
-  --li-border: rgba(10,102,194,0.28);
-
-  --st: rgba(255,255,255,0.06);
-  --st-border: rgba(255,255,255,0.12);
+  --bg:#0d0d0f; --bg2:#141416; --bg3:#1c1c1f; --bg4:#232326;
+  --border:rgba(255,255,255,0.07); --border2:rgba(255,255,255,0.13);
+  --text:#f0eee8; --text2:#9a9890; --text3:#4a4846;
+  --accent:#e8855a; --accent2:#f0a882;
+  --line:rgba(232,133,90,0.18);
+  --ig:#c13584; --ig-bg:rgba(193,53,132,0.09); --ig-border:rgba(193,53,132,0.26);
+  --tk:#69c9d0; --tk-bg:rgba(105,201,208,0.07); --tk-border:rgba(105,201,208,0.22);
+  --li:#0a66c2; --li-bg:rgba(10,102,194,0.09); --li-border:rgba(10,102,194,0.26);
+  --st:rgba(255,255,255,0.05); --st-border:rgba(255,255,255,0.10);
+  --pilar-mat:#e8a55a; --pilar-trans:#7de8a5; --pilar-pro:#5a9de8; --pilar-ref:#b07de8; --pilar-vida:#e8d55a;
 }
-
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: 'DM Sans', sans-serif;
-  font-size: 14px;
-  line-height: 1.6;
-  min-height: 100vh;
-  -webkit-font-smoothing: antialiased;
-}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:14px;line-height:1.6;min-height:100vh;-webkit-font-smoothing:antialiased}
 
 /* ── HERO ── */
-.hero {
-  padding: 60px 32px 48px;
-  max-width: 860px;
-  margin: 0 auto;
-  position: relative;
-}
-
-.hero::after {
-  content: '';
-  display: block;
-  width: 60px;
-  height: 1px;
-  background: var(--accent);
-  margin-top: 32px;
-  opacity: 0.5;
-}
-
-.hero-eyebrow {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: .18em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 14px;
-}
-
-.hero-title {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(36px, 6vw, 58px);
-  font-weight: 900;
-  line-height: 1.05;
-  letter-spacing: -.01em;
-  margin-bottom: 14px;
-  color: var(--text);
-}
-
-.hero-title em {
-  font-style: italic;
-  color: var(--accent2);
-}
-
-.hero-sub {
-  font-size: 13px;
-  color: var(--text2);
-  font-weight: 300;
-  max-width: 420px;
-  line-height: 1.7;
-}
-
-.hero-meta {
-  display: flex;
-  gap: 24px;
-  margin-top: 28px;
-  flex-wrap: wrap;
-}
-
-.hero-stat {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.hero-stat-n {
-  font-family: 'Playfair Display', serif;
-  font-size: 28px;
-  font-weight: 700;
-  color: var(--text);
-  line-height: 1;
-}
-
-.hero-stat-l {
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  color: var(--text3);
-}
-
-/* ── FILTERS ── */
-.filters-wrap {
-  padding: 0 32px 32px;
-  max-width: 860px;
-  margin: 0 auto;
-}
-
-.filters {
-  display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
-}
-
-.filter-btn {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: .06em;
-  text-transform: uppercase;
-  padding: 6px 14px;
-  border-radius: 6px;
-  border: 1px solid var(--border2);
-  background: var(--bg2);
-  color: var(--text2);
-  cursor: pointer;
-  transition: all .18s;
-}
-
-.filter-btn:hover { color: var(--text); border-color: rgba(255,255,255,0.22); }
-
-.filter-btn.active {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: #fff;
-}
-
-/* ── TIMELINE ── */
-.timeline {
-  max-width: 860px;
-  margin: 0 auto;
-  padding: 0 32px 80px;
-  position: relative;
-}
-
-.timeline::before {
-  content: '';
-  position: absolute;
-  left: 56px;
-  top: 0;
-  bottom: 0;
-  width: 1px;
-  background: linear-gradient(to bottom, transparent, var(--line) 8%, var(--line) 92%, transparent);
-}
-
-/* ── DAY ROW ── */
-.day-row {
-  display: grid;
-  grid-template-columns: 48px 1fr;
-  gap: 0 20px;
-  margin-bottom: 2px;
-  transition: opacity .2s;
-}
-
-.day-row.hidden { display: none; }
-
-.day-anchor {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 18px;
-  position: relative;
-  z-index: 1;
-}
-
-.day-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--bg3);
-  border: 1.5px solid var(--border2);
-  flex-shrink: 0;
-  margin-bottom: 4px;
-  transition: background .2s, border-color .2s;
-}
-
-.day-row.has-heavy .day-dot {
-  background: var(--accent);
-  border-color: var(--accent);
-  box-shadow: 0 0 10px rgba(232,133,90,0.4);
-}
-
-.day-label {
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  color: var(--text3);
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
-  line-height: 1;
-}
-
-/* ── CONTENT BLOCK ── */
-.content-block {
-  padding: 14px 0 20px;
-  border-bottom: 1px solid var(--border);
-}
-
-.day-date {
-  font-family: 'Playfair Display', serif;
-  font-size: 11px;
-  font-style: italic;
-  color: var(--text3);
-  margin-bottom: 10px;
-  letter-spacing: .02em;
-}
-
-.cards-stack {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-/* ── CARD ── */
-.card {
-  border-radius: 10px;
-  padding: 14px 16px;
-  border: 1px solid;
-  position: relative;
-  overflow: hidden;
-  transition: transform .15s, box-shadow .15s;
-}
-
-.card:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 6px 24px rgba(0,0,0,0.3);
-}
-
-.card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0;
-  width: 3px; height: 100%;
-}
-
-/* Historia matutina card */
-.card.historia {
-  background: var(--st);
-  border-color: var(--st-border);
-}
-.card.historia::before { background: rgba(255,255,255,0.15); }
-
-/* IG */
-.card.ig { background: var(--ig-bg); border-color: var(--ig-border); }
-.card.ig::before { background: var(--ig); }
-
-/* TikTok */
-.card.tiktok { background: var(--tk-bg); border-color: var(--tk-border); }
-.card.tiktok::before { background: var(--tk); }
-
-/* LinkedIn */
-.card.linkedin { background: var(--li-bg); border-color: var(--li-border); }
-.card.linkedin::before { background: var(--li); }
-
-/* Multi-plataforma */
-.card.multi {
-  background: linear-gradient(135deg, var(--ig-bg), var(--tk-bg));
-  border-color: rgba(255,255,255,0.10);
-}
-.card.multi::before {
-  background: linear-gradient(to bottom, var(--ig), var(--tk));
-}
-
-/* ── CARD HEADER ── */
-.card-head {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 8px;
-  flex-wrap: wrap;
-}
-
-.platform-chips {
-  display: flex;
-  gap: 4px;
-  flex-wrap: wrap;
-}
-
-.chip {
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: .06em;
-  text-transform: uppercase;
-  padding: 2px 7px;
-  border-radius: 4px;
-}
-
-.chip-ig { background: rgba(193,53,132,0.2); color: #e27abe; }
-.chip-tk { background: rgba(105,201,208,0.15); color: #69c9d0; }
-.chip-li { background: rgba(10,102,194,0.2); color: #5a9de8; }
-.chip-st { background: rgba(255,255,255,0.07); color: var(--text3); }
-
-.format-badge {
-  font-size: 9px;
-  font-weight: 600;
-  letter-spacing: .05em;
-  text-transform: uppercase;
-  color: var(--text3);
-  margin-left: auto;
-}
-
-/* ── CARD BODY ── */
-.card-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 1.35;
-  color: var(--text);
-  margin-bottom: 0;
-}
-
-.card.ig .card-title { color: #f0c0e0; }
-.card.tiktok .card-title { color: #a0e8ec; }
-.card.linkedin .card-title { color: #a0c4f0; }
-.card.multi .card-title { color: var(--text); }
-
-/* ── HISTORIA MATUTINA (special) ── */
-.card.historia .card-title {
-  font-family: 'Playfair Display', serif;
-  font-style: italic;
-  font-weight: 400;
-  font-size: 13px;
-  color: var(--text2);
-  line-height: 1.55;
-}
-
-.morning-label {
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: var(--text3);
-  margin-bottom: 6px;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.morning-label::before {
-  content: '';
-  width: 12px;
-  height: 1px;
-  background: var(--text3);
-  display: inline-block;
-}
-
-/* ── WEEK SEPARATOR ── */
-.week-sep {
-  grid-column: 1 / -1;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 24px 0 6px;
-}
-
-.week-label-text {
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: var(--accent);
-  white-space: nowrap;
-}
-
-.week-line {
-  flex: 1;
-  height: 1px;
-  background: var(--border);
-}
-
-/* ── EMPTY STATE ── */
-.empty-state {
-  text-align: center;
-  padding: 60px 20px;
-  color: var(--text3);
-  font-size: 13px;
-  display: none;
-}
+.hero{padding:56px 32px 44px;max-width:900px;margin:0 auto}
+.hero::after{content:'';display:block;width:48px;height:1px;background:var(--accent);margin-top:28px;opacity:.45}
+.eyebrow{font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(34px,6vw,56px);font-weight:900;line-height:1.05;letter-spacing:-.01em;margin-bottom:12px}
+.hero-title em{font-style:italic;color:var(--accent2)}
+.hero-sub{font-size:13px;color:var(--text2);font-weight:300;max-width:440px;line-height:1.7}
+.hero-meta{display:flex;gap:20px;margin-top:24px;flex-wrap:wrap}
+.hstat{display:flex;flex-direction:column;gap:2px}
+.hstat-n{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;line-height:1}
+.hstat-l{font-size:9.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--text3)}
 
 /* ── LEGEND ── */
-.legend-wrap {
-  max-width: 860px;
-  margin: 0 auto;
-  padding: 0 32px 40px;
-}
+.legend-wrap{max-width:900px;margin:0 auto;padding:0 32px 28px}
+.legend{display:flex;gap:8px 18px;flex-wrap:wrap;padding:13px 18px;background:var(--bg2);border:1px solid var(--border);border-radius:10px}
+.legend-title{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);width:100%;margin-bottom:4px}
+.leg{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--text2)}
+.leg-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
 
-.legend {
-  display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
-  padding: 14px 18px;
-  background: var(--bg2);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-}
+/* ── FILTERS ── */
+.filters-wrap{max-width:900px;margin:0 auto;padding:0 32px 28px}
+.filter-group-label{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:8px}
+.filters{display:flex;gap:5px;flex-wrap:wrap}
+.filter-btn{font-family:'DM Sans',sans-serif;font-size:11px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;padding:5px 13px;border-radius:6px;border:1px solid var(--border2);background:var(--bg2);color:var(--text2);cursor:pointer;transition:all .16s}
+.filter-btn:hover{color:var(--text);border-color:rgba(255,255,255,.22)}
+.filter-btn.active{background:var(--accent);border-color:var(--accent);color:#fff}
 
-.legend-title {
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  color: var(--text3);
-  width: 100%;
-  margin-bottom: 6px;
-}
+/* ── TIMELINE ── */
+.timeline{max-width:900px;margin:0 auto;padding:0 32px 80px;position:relative}
+.timeline::before{content:'';position:absolute;left:56px;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,transparent,var(--line) 6%,var(--line) 94%,transparent)}
 
-.leg {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 11px;
-  color: var(--text2);
-}
+/* ── DAY ROW ── */
+.day-row{display:grid;grid-template-columns:48px 1fr;gap:0 20px;transition:opacity .2s}
+.day-row.hidden{display:none}
+.day-anchor{display:flex;flex-direction:column;align-items:center;padding-top:20px;position:relative;z-index:1}
+.day-dot{width:9px;height:9px;border-radius:50%;background:var(--bg3);border:1.5px solid var(--border2);flex-shrink:0;margin-bottom:5px;transition:all .2s}
+.day-row.has-feed .day-dot{background:var(--accent);border-color:var(--accent);box-shadow:0 0 10px rgba(232,133,90,.4)}
+.day-label{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);writing-mode:vertical-rl;transform:rotate(180deg);line-height:1}
 
-.leg-dot {
-  width: 8px; height: 8px;
-  border-radius: 50%;
-  flex-shrink: 0;
-}
+/* ── CONTENT BLOCK ── */
+.content-block{padding:16px 0 22px;border-bottom:1px solid var(--border)}
+.day-date{font-family:'Playfair Display',serif;font-size:11px;font-style:italic;color:var(--text3);margin-bottom:12px;letter-spacing:.02em}
+.cards-stack{display:flex;flex-direction:column;gap:8px}
+
+/* ── STORIES ROW ── */
+.stories-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:2px}
+.story-card{flex:1;min-width:200px;border-radius:9px;padding:11px 14px;border:1px solid var(--st-border);background:var(--st);position:relative;overflow:hidden}
+.story-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:rgba(255,255,255,.14)}
+.story-badge{font-size:8.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:5px;display:flex;align-items:center;gap:5px}
+.story-badge::before{content:'';width:10px;height:1px;background:var(--text3);display:inline-block}
+.story-time{font-size:8px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text3);background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:3px;padding:1px 5px;margin-left:auto}
+.story-quote{font-family:'Playfair Display',serif;font-style:italic;font-size:12.5px;color:var(--text2);line-height:1.55}
+.story-caption{font-size:10.5px;color:var(--text3);margin-top:6px;font-weight:300;line-height:1.4}
+
+/* ── FEED CARD ── */
+.card{border-radius:10px;padding:14px 16px;border:1px solid;position:relative;overflow:hidden;transition:transform .15s,box-shadow .15s}
+.card:hover{transform:translateY(-1px);box-shadow:0 6px 24px rgba(0,0,0,.32)}
+.card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%}
+.card.ig{background:var(--ig-bg);border-color:var(--ig-border)}
+.card.ig::before{background:var(--ig)}
+.card.tiktok{background:var(--tk-bg);border-color:var(--tk-border)}
+.card.tiktok::before{background:var(--tk)}
+.card.linkedin{background:var(--li-bg);border-color:var(--li-border)}
+.card.linkedin::before{background:var(--li)}
+.card.multi{background:linear-gradient(135deg,var(--ig-bg),var(--tk-bg));border-color:rgba(255,255,255,.09)}
+.card.multi::before{background:linear-gradient(to bottom,var(--ig),var(--tk))}
+
+/* ── CARD HEAD ── */
+.card-head{display:flex;align-items:center;gap:7px;margin-bottom:9px;flex-wrap:wrap}
+.pchips{display:flex;gap:4px;flex-wrap:wrap}
+.chip{font-size:8.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:2px 7px;border-radius:4px}
+.chip-ig{background:rgba(193,53,132,.18);color:#e27abe}
+.chip-tk{background:rgba(105,201,208,.14);color:#69c9d0}
+.chip-li{background:rgba(10,102,194,.18);color:#7ab0e8}
+.format-badge{font-size:9px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--text3);margin-left:auto}
+.published-dot{width:6px;height:6px;border-radius:50%;background:#4ade80;flex-shrink:0;box-shadow:0 0 6px rgba(74,222,128,.5)}
+.published-label{font-size:8.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#4ade80}
+
+/* ── CARD BODY ── */
+.card-idea{font-family:'Playfair Display',serif;font-size:14.5px;font-weight:700;line-height:1.3;color:var(--text);margin-bottom:6px}
+.card.ig .card-idea{color:#f2c0e4}
+.card.tiktok .card-idea{color:#a4e8ec}
+.card.linkedin .card-idea{color:#a8c8f0}
+.card.multi .card-idea{color:var(--text)}
+
+/* ── META GRID ── */
+.card-meta{display:grid;grid-template-columns:1fr 1fr;gap:5px 14px;margin-top:10px;padding-top:10px;border-top:1px solid rgba(255,255,255,.05)}
+.meta-item{display:flex;flex-direction:column;gap:2px}
+.meta-label{font-size:8.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--text3)}
+.meta-val{font-size:11px;color:var(--text2);font-weight:400;line-height:1.4}
+
+/* ── PILAR BADGE ── */
+.pilar-badge{display:inline-flex;align-items:center;gap:5px;font-size:8.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:2px 8px;border-radius:4px;margin-top:2px}
+.pilar-pro{background:rgba(90,157,232,.14);color:#7ab0e8;border:1px solid rgba(90,157,232,.22)}
+.pilar-trans{background:rgba(125,232,165,.12);color:#7de8a5;border:1px solid rgba(125,232,165,.2)}
+.pilar-ref{background:rgba(176,125,232,.12);color:#c4a0f0;border:1px solid rgba(176,125,232,.2)}
+.pilar-vida{background:rgba(232,213,90,.10);color:#e8d55a;border:1px solid rgba(232,213,90,.18)}
+.pilar-mat{background:rgba(232,165,90,.12);color:#e8a55a;border:1px solid rgba(232,165,90,.2)}
+
+/* ── CTA ── */
+.cta-block{margin-top:10px;padding-top:10px;border-top:1px solid rgba(255,255,255,.05)}
+.cta-label{font-size:8.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--text3);margin-bottom:4px}
+.cta-text{font-size:11.5px;font-style:italic;color:var(--text2);font-family:'Playfair Display',serif;line-height:1.45}
+
+/* ── OBJETIVO BADGE ── */
+.obj-badge{font-size:8px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:2px 7px;border-radius:4px;background:rgba(232,133,90,.12);color:var(--accent);border:1px solid rgba(232,133,90,.2)}
+
+/* ── DAY SKIP ── */
+.day-skip .day-dot{border-style:dashed;opacity:.5}
+.skip-note{font-size:11px;color:var(--text3);font-style:italic;padding:14px 0 4px;font-family:'Playfair Display',serif}
+
+/* ── EMPTY ── */
+.empty-state{text-align:center;padding:60px 20px;color:var(--text3);font-size:13px;display:none}
 
 /* ── RESPONSIVE ── */
-@media (max-width: 600px) {
-  .hero { padding: 40px 20px 32px; }
-  .filters-wrap { padding: 0 20px 24px; }
-  .timeline { padding: 0 20px 60px; }
-  .timeline::before { left: 38px; }
-  .legend-wrap { padding: 0 20px 40px; }
-  .hero-title { font-size: 32px; }
+@media(max-width:600px){
+  .hero,.legend-wrap,.filters-wrap,.timeline{padding-left:20px;padding-right:20px}
+  .timeline::before{left:38px}
+  .hero-title{font-size:30px}
+  .stories-row{flex-direction:column}
+  .card-meta{grid-template-columns:1fr}
 }
 
-/* ── SCROLL ANIMATION ── */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(12px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.day-row {
-  animation: fadeUp .35s ease both;
-}
-
-.day-row:nth-child(1) { animation-delay: .04s }
-.day-row:nth-child(2) { animation-delay: .08s }
-.day-row:nth-child(3) { animation-delay: .12s }
-.day-row:nth-child(4) { animation-delay: .16s }
-.day-row:nth-child(5) { animation-delay: .20s }
-.day-row:nth-child(6) { animation-delay: .24s }
-.day-row:nth-child(7) { animation-delay: .28s }
-.day-row:nth-child(8) { animation-delay: .32s }
-.day-row:nth-child(9) { animation-delay: .36s }
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.day-row{animation:fadeUp .32s ease both}
+.day-row:nth-child(1){animation-delay:.04s}.day-row:nth-child(2){animation-delay:.09s}
+.day-row:nth-child(3){animation-delay:.14s}.day-row:nth-child(4){animation-delay:.19s}
+.day-row:nth-child(5){animation-delay:.24s}.day-row:nth-child(6){animation-delay:.29s}
+.day-row:nth-child(7){animation-delay:.34s}.day-row:nth-child(8){animation-delay:.39s}
+.day-row:nth-child(9){animation-delay:.44s}.day-row:nth-child(10){animation-delay:.49s}
+.day-row:nth-child(11){animation-delay:.54s}
 </style>
 </head>
 <body>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-eyebrow">Mhitzy Chriss · Estrategia de Contenido</div>
+  <div class="eyebrow">Mhitzy Chriss · Estrategia de Contenido</div>
   <h1 class="hero-title">Grilla <em>Junio</em> 2026</h1>
-  <p class="hero-sub">Publicación diaria · Instagram, TikTok y LinkedIn · Semanas del 13 al 21 de junio</p>
+  <p class="hero-sub">Publicación diaria · Instagram, TikTok y LinkedIn · 13–21 de junio</p>
   <div class="hero-meta">
-    <div class="hero-stat">
-      <span class="hero-stat-n">9</span>
-      <span class="hero-stat-l">Publicaciones</span>
-    </div>
-    <div class="hero-stat">
-      <span class="hero-stat-n">3</span>
-      <span class="hero-stat-l">Plataformas</span>
-    </div>
-    <div class="hero-stat">
-      <span class="hero-stat-n">9</span>
-      <span class="hero-stat-l">Días</span>
-    </div>
-    <div class="hero-stat">
-      <span class="hero-stat-n">5</span>
-      <span class="hero-stat-l">Historias mat.</span>
-    </div>
+    <div class="hstat"><span class="hstat-n">9</span><span class="hstat-l">Días</span></div>
+    <div class="hstat"><span class="hstat-n">6</span><span class="hstat-l">Piezas feed</span></div>
+    <div class="hstat"><span class="hstat-n">14</span><span class="hstat-l">Historias</span></div>
+    <div class="hstat"><span class="hstat-n">3</span><span class="hstat-l">Plataformas</span></div>
   </div>
 </section>
 
 <!-- LEGEND -->
 <div class="legend-wrap">
   <div class="legend">
-    <div class="legend-title">Plataformas</div>
-    <div class="leg"><div class="leg-dot" style="background:var(--ig)"></div> Instagram</div>
-    <div class="leg"><div class="leg-dot" style="background:var(--tk)"></div> TikTok</div>
-    <div class="leg"><div class="leg-dot" style="background:var(--li)"></div> LinkedIn</div>
-    <div class="leg"><div class="leg-dot" style="background:rgba(255,255,255,0.25)"></div> Stories</div>
+    <div class="legend-title">Plataformas &amp; Pilares</div>
+    <div class="leg"><div class="leg-dot" style="background:var(--ig)"></div>Instagram</div>
+    <div class="leg"><div class="leg-dot" style="background:var(--tk)"></div>TikTok</div>
+    <div class="leg"><div class="leg-dot" style="background:var(--li)"></div>LinkedIn</div>
+    <div class="leg"><div class="leg-dot" style="background:rgba(255,255,255,.25)"></div>Stories</div>
+    <div class="leg"><span class="pilar-badge pilar-pro" style="padding:1px 7px">Profesional</span></div>
+    <div class="leg"><span class="pilar-badge pilar-trans" style="padding:1px 7px">Transformación</span></div>
+    <div class="leg"><span class="pilar-badge pilar-ref" style="padding:1px 7px">Reflexión</span></div>
+    <div class="leg"><span class="pilar-badge pilar-vida" style="padding:1px 7px">Vida</span></div>
+    <div class="leg"><div class="published-dot"></div><span class="published-label">Publicado</span></div>
   </div>
 </div>
 
 <!-- FILTERS -->
 <div class="filters-wrap">
+  <div class="filter-group-label">Filtrar por</div>
   <div class="filters">
     <button class="filter-btn active" data-filter="all">Todos</button>
     <button class="filter-btn" data-filter="instagram">Instagram</button>
     <button class="filter-btn" data-filter="tiktok">TikTok</button>
     <button class="filter-btn" data-filter="linkedin">LinkedIn</button>
-    <button class="filter-btn" data-filter="historia">Historias</button>
+    <button class="filter-btn" data-filter="historia">Stories</button>
     <button class="filter-btn" data-filter="reel">Reels</button>
     <button class="filter-btn" data-filter="carrusel">Carruseles</button>
+    <button class="filter-btn" data-filter="post">Post texto</button>
   </div>
 </div>
 
 <!-- TIMELINE -->
 <div class="timeline" id="timeline">
 
-  <!-- SAB 13 -->
+  <!-- ══ SÁB 13 ══ -->
   <div class="day-row" data-platforms="instagram,historia" data-formats="historia">
-    <div class="day-anchor">
-      <div class="day-dot"></div>
-      <div class="day-label">Sáb</div>
-    </div>
+    <div class="day-anchor"><div class="day-dot"></div><div class="day-label">Sáb</div></div>
     <div class="content-block">
       <div class="day-date">13 de junio</div>
       <div class="cards-stack">
-        <div class="card historia">
-          <div class="morning-label">Historia matutina · IG Stories</div>
-          <div class="card-title">"No siempre notas tu crecimiento mientras ocurre. A veces lo descubres cuando miras atrás."</div>
+        <div class="stories-row">
+          <div class="story-card">
+            <div class="story-badge">Historia AM <span class="story-time">Mañana</span></div>
+            <div class="story-quote">"No siempre notas tu crecimiento mientras ocurre. A veces lo descubres cuando miras atrás."</div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- DOM 14 -->
-  <div class="day-row has-heavy" data-platforms="instagram,tiktok,reel" data-formats="reel">
-    <div class="day-anchor">
-      <div class="day-dot"></div>
-      <div class="day-label">Dom</div>
-    </div>
+  <!-- ══ DOM 14 ══ -->
+  <div class="day-row has-feed" data-platforms="instagram,tiktok" data-formats="reel">
+    <div class="day-anchor"><div class="day-dot"></div><div class="day-label">Dom</div></div>
     <div class="content-block">
       <div class="day-date">14 de junio</div>
       <div class="cards-stack">
+        <div class="stories-row">
+          <div class="story-card">
+            <div class="story-badge">Historia AM <span class="story-time">Mañana</span></div>
+            <div class="story-quote">"A veces regresar a un lugar te recuerda todo lo que has avanzado."</div>
+          </div>
+        </div>
         <div class="card multi">
           <div class="card-head">
-            <div class="platform-chips">
-              <span class="chip chip-ig">IG</span>
-              <span class="chip chip-tk">TikTok</span>
-            </div>
+            <div class="pchips"><span class="chip chip-ig">IG</span><span class="chip chip-tk">TikTok</span></div>
             <span class="format-badge">Reel</span>
           </div>
-          <div class="card-title">Volví al lugar donde era una persona distinta</div>
-          <div style="margin-top:10px;padding-top:10px;border-top:1px solid rgba(255,255,255,0.06)">
-            <div class="morning-label">Historia matutina</div>
-            <p style="font-family:'Playfair Display',serif;font-style:italic;font-size:12px;color:var(--text2);line-height:1.55">"A veces regresar a un lugar te recuerda todo lo que has avanzado."</p>
+          <div class="card-idea">Volví al lugar donde era una persona distinta</div>
+          <div class="card-meta">
+            <div class="meta-item"><span class="meta-label">Pilar</span><span class="pilar-badge pilar-ref">Reflexión personal</span></div>
+            <div class="meta-item"><span class="meta-label">Objetivo</span><span class="obj-badge">Identidad</span></div>
+            <div class="meta-item"><span class="meta-label">IP</span><span class="meta-val">Construyendo una vida extraordinaria</span></div>
+            <div class="meta-item"><span class="meta-label">Historia</span><span class="meta-val">Regresar a un lugar y descubrir cuánto has cambiado</span></div>
+          </div>
+          <div class="cta-block">
+            <div class="cta-label">CTA</div>
+            <div class="cta-text">"¿Hay un lugar que te recuerde quién eras antes?"</div>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- LUN 15 -->
-  <div class="day-row" data-platforms="instagram,historia" data-formats="historia">
-    <div class="day-anchor">
-      <div class="day-dot"></div>
-      <div class="day-label">Lun</div>
-    </div>
+  <!-- ══ LUN 15 ══ -->
+  <div class="day-row has-feed" data-platforms="instagram,linkedin,historia" data-formats="historia,post">
+    <div class="day-anchor"><div class="day-dot"></div><div class="day-label">Lun</div></div>
     <div class="content-block">
       <div class="day-date">15 de junio</div>
       <div class="cards-stack">
-        <div class="card historia">
-          <div class="morning-label">Historia matutina · Stories</div>
-          <div class="card-title">"No todas las oportunidades llegan cuando te sientes preparada. Algunas llegan para prepararte."</div>
+        <div class="stories-row">
+          <div class="story-card">
+            <div class="story-badge">Historia AM · Publicada <span class="story-time">Mañana</span></div>
+            <div class="published-dot" style="margin-bottom:5px"></div>
+            <div class="story-quote">"No todas las oportunidades llegan cuando te sientes preparada. Algunas llegan para prepararte."</div>
+          </div>
+          <div class="story-card">
+            <div class="story-badge">Historia PM <span class="story-time">Tarde</span></div>
+            <div class="story-quote">"Semana intensa. Mucho por construir."</div>
+            <div class="story-caption">Foto trabajando o en reunión. Tono honesto de arranque de semana.</div>
+          </div>
+        </div>
+        <div class="card linkedin">
+          <div class="card-head">
+            <div class="pchips"><span class="chip chip-li">LinkedIn</span></div>
+            <span class="format-badge">Post texto</span>
+            <div class="published-dot"></div><span class="published-label">Publicado</span>
+          </div>
+          <div class="card-idea">Lo que aprendí al resumir casi tres años de construcción</div>
+          <div class="card-meta">
+            <div class="meta-item"><span class="meta-label">Pilar</span><span class="pilar-badge pilar-pro">Vida profesional</span></div>
+            <div class="meta-item"><span class="meta-label">Objetivo</span><span class="obj-badge">Autoridad</span></div>
+            <div class="meta-item"><span class="meta-label">IP</span><span class="meta-val">Construyendo una vida extraordinaria</span></div>
+            <div class="meta-item"><span class="meta-label">Historia</span><span class="meta-val">Resumir tres años de trabajo y volver a tus raíces</span></div>
+          </div>
+          <div class="cta-block">
+            <div class="cta-label">CTA</div>
+            <div class="cta-text">"¿Qué experiencia te ha ayudado a entender mejor tu camino?"</div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- MAR 16 -->
-  <div class="day-row has-heavy" data-platforms="linkedin" data-formats="post,carrusel">
-    <div class="day-anchor">
-      <div class="day-dot"></div>
-      <div class="day-label">Mar</div>
-    </div>
+  <!-- ══ MAR 16 ══ -->
+  <div class="day-row" data-platforms="instagram,historia" data-formats="historia">
+    <div class="day-anchor"><div class="day-dot"></div><div class="day-label">Mar</div></div>
     <div class="content-block">
       <div class="day-date">16 de junio</div>
       <div class="cards-stack">
-        <div class="card linkedin">
-          <div class="card-head">
-            <div class="platform-chips">
-              <span class="chip chip-li">LinkedIn</span>
-            </div>
-            <span class="format-badge">Post + Foto</span>
+        <div class="stories-row">
+          <div class="story-card">
+            <div class="story-badge">Historia AM · Publicada <span class="story-time">Mañana</span></div>
+            <div class="published-dot" style="margin-bottom:5px"></div>
+            <div class="story-quote">"Nada se vuelve a repetir. Lo que hoy parece rutina, mañana podría ser nostalgia."</div>
           </div>
-          <div class="card-title">Lo que aprendí al resumir casi tres años de construcción</div>
-          <div style="margin-top:10px;padding-top:10px;border-top:1px solid rgba(255,255,255,0.06)">
-            <div class="morning-label">Historia matutina</div>
-            <p style="font-family:'Playfair Display',serif;font-style:italic;font-size:12px;color:var(--text2);line-height:1.55">"Hay semanas que parecen comunes. Hasta que entiendes lo mucho que te cambiaron."</p>
+          <div class="story-card">
+            <div class="story-badge">Historia PM <span class="story-time">Tarde</span></div>
+            <div class="story-quote">"Hay semanas donde el progreso no se ve. Solo se construye."</div>
+            <div class="story-caption">Foto de laptop, coworking o trabajo. Sin texto elaborado.</div>
           </div>
+        </div>
+        <div style="padding:10px 14px;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:8px">
+          <div style="font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:4px">Día de distribución</div>
+          <div style="font-size:11.5px;color:var(--text2);font-style:italic;font-family:'Playfair Display',serif">Sin publicación de feed. Día de observación y planificación estratégica.</div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- MIÉ 17 -->
-  <div class="day-row" data-platforms="instagram,historia" data-formats="historia">
-    <div class="day-anchor">
-      <div class="day-dot"></div>
-      <div class="day-label">Mié</div>
-    </div>
+  <!-- ══ MIÉ 17 ══ -->
+  <div class="day-row has-feed" data-platforms="instagram" data-formats="reel">
+    <div class="day-anchor"><div class="day-dot"></div><div class="day-label">Mié</div></div>
     <div class="content-block">
       <div class="day-date">17 de junio</div>
       <div class="cards-stack">
-        <div class="card historia">
-          <div class="morning-label">Historia matutina · Stories</div>
-          <div class="card-title">"Lo que hoy parece rutina podría ser parte de algo mucho más grande."</div>
+        <div class="stories-row">
+          <div class="story-card">
+            <div class="story-badge">Historia AM <span class="story-time">Mañana</span></div>
+            <div class="story-quote">"Algunas cosas no cambian cuando las entiendes. Cambian cuando las sientes."</div>
+          </div>
+          <div class="story-card">
+            <div class="story-badge">Historia PM <span class="story-time">Tarde</span></div>
+            <div class="story-quote">"Todavía estoy procesando todo lo que removió esta experiencia."</div>
+            <div class="story-caption">Foto o video del workshop. Tono íntimo y real.</div>
+          </div>
+        </div>
+        <div class="card ig">
+          <div class="card-head">
+            <div class="pchips"><span class="chip chip-ig">Instagram</span></div>
+            <span class="format-badge">Reel editado</span>
+          </div>
+          <div class="card-idea">Mi voz nunca fue pequeña. Estaba atrapada.</div>
+          <div class="card-meta">
+            <div class="meta-item"><span class="meta-label">Pilar</span><span class="pilar-badge pilar-ref">Reflexión personal</span></div>
+            <div class="meta-item"><span class="meta-label">Objetivo</span><span class="obj-badge">Posicionamiento</span></div>
+            <div class="meta-item"><span class="meta-label">IP</span><span class="meta-val">Retomando sueños postergados</span></div>
+            <div class="meta-item"><span class="meta-label">Historia</span><span class="meta-val">Workshop, liberación emocional y descubrimiento de tu voz</span></div>
+          </div>
+          <div class="cta-block">
+            <div class="cta-label">CTA</div>
+            <div class="cta-text">"¿Alguna vez sentiste que estabas ocultando una parte de ti?"</div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- JUE 18 -->
-  <div class="day-row has-heavy" data-platforms="instagram,tiktok,reel" data-formats="reel">
-    <div class="day-anchor">
-      <div class="day-dot"></div>
-      <div class="day-label">Jue</div>
-    </div>
+  <!-- ══ JUE 18 ══ -->
+  <div class="day-row has-feed" data-platforms="instagram" data-formats="carrusel">
+    <div class="day-anchor"><div class="day-dot"></div><div class="day-label">Jue</div></div>
     <div class="content-block">
       <div class="day-date">18 de junio</div>
       <div class="cards-stack">
-        <div class="card multi">
-          <div class="card-head">
-            <div class="platform-chips">
-              <span class="chip chip-ig">IG</span>
-              <span class="chip chip-tk">TikTok</span>
-            </div>
-            <span class="format-badge">Reel</span>
+        <div class="stories-row">
+          <div class="story-card">
+            <div class="story-badge">Historia AM <span class="story-time">Mañana</span></div>
+            <div class="story-quote">"Crecer también es dejar de esconder partes de ti."</div>
           </div>
-          <div class="card-title">La vida que soñé también incluye cansancio</div>
-          <div style="margin-top:10px;padding-top:10px;border-top:1px solid rgba(255,255,255,0.06)">
-            <div class="morning-label">Historia matutina</div>
-            <p style="font-family:'Playfair Display',serif;font-style:italic;font-size:12px;color:var(--text2);line-height:1.55">"La claridad no siempre aparece antes de empezar. Muchas veces aparece en el camino."</p>
+          <div class="story-card">
+            <div class="story-badge">Historia PM <span class="story-time">Tarde</span></div>
+            <div class="story-quote">"Hoy me tocó liderar sin tener todas las respuestas."</div>
+            <div class="story-caption">Foto trabajando. Tono directo, sin dramatismo.</div>
+          </div>
+        </div>
+        <div class="card ig">
+          <div class="card-head">
+            <div class="pchips"><span class="chip chip-ig">Instagram</span></div>
+            <span class="format-badge">Carrusel</span>
+          </div>
+          <div class="card-idea">Buena en todo, perfecta en nada.</div>
+          <div class="card-meta">
+            <div class="meta-item"><span class="meta-label">Pilar</span><span class="pilar-badge pilar-pro">Vida profesional</span></div>
+            <div class="meta-item"><span class="meta-label">Objetivo</span><span class="obj-badge">Autoridad</span></div>
+            <div class="meta-item"><span class="meta-label">IP</span><span class="meta-val">Cosas que aprendí liderando…</span></div>
+            <div class="meta-item"><span class="meta-label">Historia</span><span class="meta-val">Conversación con tu jefe y liderazgo B2C</span></div>
+          </div>
+          <div class="cta-block">
+            <div class="cta-label">CTA</div>
+            <div class="cta-text">"¿Te consideras especialista o generalista?"</div>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- VIE 19 -->
-  <div class="day-row" data-platforms="instagram,historia" data-formats="historia">
-    <div class="day-anchor">
-      <div class="day-dot"></div>
-      <div class="day-label">Vie</div>
-    </div>
+  <!-- ══ VIE 19 ══ -->
+  <div class="day-row has-feed" data-platforms="tiktok" data-formats="broll,post">
+    <div class="day-anchor"><div class="day-dot"></div><div class="day-label">Vie</div></div>
     <div class="content-block">
       <div class="day-date">19 de junio</div>
       <div class="cards-stack">
-        <div class="card historia">
-          <div class="morning-label">Historia matutina · Stories</div>
-          <div class="card-title">"Algunas decisiones tardan meses en mostrar por qué fueron importantes."</div>
+        <div class="stories-row">
+          <div class="story-card">
+            <div class="story-badge">Historia AM <span class="story-time">Mañana</span></div>
+            <div class="story-quote">"Hay valor en destacar. También en conectar lo que otros no ven."</div>
+          </div>
+          <div class="story-card">
+            <div class="story-badge">Historia PM <span class="story-time">Tarde</span></div>
+            <div class="story-quote">"Mucho trabajo invisible. Mucha construcción."</div>
+            <div class="story-caption">Foto oficina, reunión o coworking.</div>
+          </div>
+        </div>
+        <div class="card tiktok">
+          <div class="card-head">
+            <div class="pchips"><span class="chip chip-tk">TikTok</span></div>
+            <span class="format-badge">B-roll + texto</span>
+          </div>
+          <div class="card-idea">Las startups necesitan personas adaptables.</div>
+          <div class="card-meta">
+            <div class="meta-item"><span class="meta-label">Pilar</span><span class="pilar-badge pilar-pro">Vida profesional</span></div>
+            <div class="meta-item"><span class="meta-label">Objetivo</span><span class="obj-badge">Descubrimiento</span></div>
+            <div class="meta-item"><span class="meta-label">IP</span><span class="meta-val">Real Fact</span></div>
+            <div class="meta-item"><span class="meta-label">Historia</span><span class="meta-val">Reflexión sobre generalistas vs especialistas</span></div>
+          </div>
+          <div class="cta-block">
+            <div class="cta-label">CTA</div>
+            <div class="cta-text">"¿Cuál crees que es tu mayor fortaleza profesional?"</div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- SÁB 20 -->
-  <div class="day-row" data-platforms="instagram,historia" data-formats="historia">
-    <div class="day-anchor">
-      <div class="day-dot"></div>
-      <div class="day-label">Sáb</div>
-    </div>
+  <!-- ══ SÁB 20 ══ -->
+  <div class="day-row has-feed" data-platforms="tiktok" data-formats="reel">
+    <div class="day-anchor"><div class="day-dot"></div><div class="day-label">Sáb</div></div>
     <div class="content-block">
       <div class="day-date">20 de junio</div>
       <div class="cards-stack">
-        <div class="card historia">
-          <div class="morning-label">Historia matutina · Stories</div>
-          <div class="card-title">"Hay versiones de ti que solo pueden crecer si te atreves a soltarlas."</div>
+        <div class="stories-row">
+          <div class="story-card">
+            <div class="story-badge">Historia AM <span class="story-time">Mañana</span></div>
+            <div class="story-quote">"La vida soñada también tiene reuniones, cansancio y ropa por lavar."</div>
+          </div>
+          <div class="story-card">
+            <div class="story-badge">Historia PM <span class="story-time">Tarde</span></div>
+            <div class="story-quote">"Corriendo incluso en semanas donde el tiempo parece no alcanzar."</div>
+            <div class="story-caption">Running o gimnasio. Foto o clip corto en movimiento.</div>
+          </div>
+        </div>
+        <div class="card tiktok">
+          <div class="card-head">
+            <div class="pchips"><span class="chip chip-tk">TikTok</span></div>
+            <span class="format-badge">Storytelling</span>
+          </div>
+          <div class="card-idea">La vida soñada también incluye cansancio.</div>
+          <div class="card-meta">
+            <div class="meta-item"><span class="meta-label">Pilar</span><span class="pilar-badge pilar-trans">Transformación personal</span></div>
+            <div class="meta-item"><span class="meta-label">Objetivo</span><span class="obj-badge">Conexión</span></div>
+            <div class="meta-item"><span class="meta-label">IP</span><span class="meta-val">Lo que correr me enseñó sobre…</span></div>
+            <div class="meta-item"><span class="meta-label">Historia</span><span class="meta-val">Compatibilizar trabajo, running, estudios y vida personal</span></div>
+          </div>
+          <div class="cta-block">
+            <div class="cta-label">CTA</div>
+            <div class="cta-text">"¿Qué parte poco glamorosa de tus metas casi nadie ve?"</div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- DOM 21 -->
-  <div class="day-row has-heavy" data-platforms="linkedin,carrusel" data-formats="carrusel">
-    <div class="day-anchor">
-      <div class="day-dot"></div>
-      <div class="day-label">Dom</div>
-    </div>
+  <!-- ══ DOM 21 ══ -->
+  <div class="day-row has-feed" data-platforms="instagram,linkedin" data-formats="carrusel">
+    <div class="day-anchor"><div class="day-dot"></div><div class="day-label">Dom</div></div>
     <div class="content-block">
       <div class="day-date">21 de junio</div>
       <div class="cards-stack">
+        <div class="stories-row">
+          <div class="story-card">
+            <div class="story-badge">Historia AM <span class="story-time">Mañana</span></div>
+            <div class="story-quote">"Un día miras atrás y entiendes que sí estabas avanzando."</div>
+          </div>
+          <div class="story-card">
+            <div class="story-badge">Historia PM <span class="story-time">Tarde</span></div>
+            <div class="story-quote">Recap de la semana.</div>
+            <div class="story-caption">Foto o collage de momentos de la semana. Cierre visual.</div>
+          </div>
+        </div>
         <div class="card linkedin">
           <div class="card-head">
-            <div class="platform-chips">
-              <span class="chip chip-li">LinkedIn</span>
-            </div>
+            <div class="pchips"><span class="chip chip-li">LinkedIn</span></div>
             <span class="format-badge">Carrusel</span>
           </div>
-          <div class="card-title">Lo que aprendí construyendo una presentación ejecutiva</div>
-          <div style="margin-top:10px;padding-top:10px;border-top:1px solid rgba(255,255,255,0.06)">
-            <div class="morning-label">Historia matutina</div>
-            <p style="font-family:'Playfair Display',serif;font-style:italic;font-size:12px;color:var(--text2);line-height:1.55">"La evolución rara vez ocurre de golpe. Casi siempre ocurre poco a poco."</p>
+          <div class="card-idea">Lo que aprendí construyendo una presentación ejecutiva</div>
+          <div class="card-meta">
+            <div class="meta-item"><span class="meta-label">Pilar</span><span class="pilar-badge pilar-pro">Vida profesional</span></div>
+            <div class="meta-item"><span class="meta-label">Objetivo</span><span class="obj-badge">Autoridad</span></div>
+            <div class="meta-item"><span class="meta-label">IP</span><span class="meta-val">Construyendo una vida extraordinaria</span></div>
+            <div class="meta-item"><span class="meta-label">Historia</span><span class="meta-val">Trabajo, running, workshop, familia y crecimiento personal</span></div>
+          </div>
+          <div class="cta-block">
+            <div class="cta-label">CTA</div>
+            <div class="cta-text">"¿Qué fue lo más valioso que construiste esta semana?"</div>
+          </div>
+        </div>
+        <div class="card ig">
+          <div class="card-head">
+            <div class="pchips"><span class="chip chip-ig">Instagram</span></div>
+            <span class="format-badge">Carrusel lifestyle</span>
+          </div>
+          <div class="card-idea">Lo que esta semana me recordó sobre construcción silenciosa.</div>
+          <div class="card-meta">
+            <div class="meta-item"><span class="meta-label">Pilar</span><span class="pilar-badge pilar-vida">Construcción de vida</span></div>
+            <div class="meta-item"><span class="meta-label">Objetivo</span><span class="obj-badge">Identidad</span></div>
+          </div>
+          <div class="cta-block">
+            <div class="cta-label">CTA</div>
+            <div class="cta-text">"¿Qué fue lo más valioso que construiste esta semana?"</div>
           </div>
         </div>
       </div>
@@ -747,28 +536,15 @@ filterBtns.forEach(btn => {
   btn.addEventListener('click', () => {
     filterBtns.forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-
     const f = btn.dataset.filter;
     let visible = 0;
-
     rows.forEach(row => {
       const platforms = (row.dataset.platforms || '').split(',');
       const formats = (row.dataset.formats || '').split(',');
-      const all = ['all'];
-
-      const match =
-        f === 'all' ||
-        platforms.includes(f) ||
-        formats.includes(f);
-
-      if (match) {
-        row.classList.remove('hidden');
-        visible++;
-      } else {
-        row.classList.add('hidden');
-      }
+      const match = f === 'all' || platforms.includes(f) || formats.includes(f);
+      row.classList.toggle('hidden', !match);
+      if (match) visible++;
     });
-
     emptyState.style.display = visible === 0 ? 'block' : 'none';
   });
 });
